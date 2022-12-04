@@ -6,9 +6,9 @@ pub(crate) struct Day1 {
 }
 
 impl Solution for Day1 {
-    fn parse(&mut self, mut input_lines: impl Iterator<Item = String>) -> ParseResult {
+    fn parse(&mut self, input_lines: impl Iterator<Item = String>) -> ParseResult {
         let mut cur_calories = 0;
-        while let Some(line) = input_lines.next() {
+        for line in input_lines {
             if line.is_empty() {
                 self.calories.push(cur_calories);
                 cur_calories = 0;

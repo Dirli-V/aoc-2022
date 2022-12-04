@@ -48,12 +48,12 @@ impl Solution for Day2 {
             .map(|game| match game {
                 (Shape::Rock, Shape::Rock) => 1 + 3,
                 (Shape::Rock, Shape::Paper) => 2 + 6,
-                (Shape::Rock, Shape::Scissors) => 3 + 0,
-                (Shape::Paper, Shape::Rock) => 1 + 0,
+                (Shape::Rock, Shape::Scissors) => 3,
+                (Shape::Paper, Shape::Rock) => 1,
                 (Shape::Paper, Shape::Paper) => 2 + 3,
                 (Shape::Paper, Shape::Scissors) => 3 + 6,
                 (Shape::Scissors, Shape::Rock) => 1 + 6,
-                (Shape::Scissors, Shape::Paper) => 2 + 0,
+                (Shape::Scissors, Shape::Paper) => 2,
                 (Shape::Scissors, Shape::Scissors) => 3 + 3,
             })
             .sum();
@@ -66,13 +66,13 @@ impl Solution for Day2 {
             .guide
             .iter()
             .map(|game| match game {
-                (Shape::Rock, Shape::Rock) => 3 + 0,
+                (Shape::Rock, Shape::Rock) => 3,
                 (Shape::Rock, Shape::Paper) => 1 + 3,
                 (Shape::Rock, Shape::Scissors) => 2 + 6,
-                (Shape::Paper, Shape::Rock) => 1 + 0,
+                (Shape::Paper, Shape::Rock) => 1,
                 (Shape::Paper, Shape::Paper) => 2 + 3,
                 (Shape::Paper, Shape::Scissors) => 3 + 6,
-                (Shape::Scissors, Shape::Rock) => 2 + 0,
+                (Shape::Scissors, Shape::Rock) => 2,
                 (Shape::Scissors, Shape::Paper) => 3 + 3,
                 (Shape::Scissors, Shape::Scissors) => 1 + 6,
             })
