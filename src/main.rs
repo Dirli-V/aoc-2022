@@ -8,6 +8,7 @@ use std::{
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 type SolutionResult = Result<usize, Box<dyn Error>>;
 type ParseResult = Result<(), Box<dyn Error>>;
@@ -24,8 +25,9 @@ fn main() {
     {
         solve(day1::Day1::default());
         solve(day2::Day2::default());
+        solve(day3::Day3::default());
     }
-    solve(day3::Day3::default());
+    solve(day4::Day4::default());
 }
 
 fn solve(mut s: impl Solution) {
