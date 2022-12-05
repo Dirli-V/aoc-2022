@@ -26,7 +26,7 @@ impl Solution for Day1 {
     fn solve1(&self) -> SolutionResult {
         let max_calories = self.calories.iter().max().ok_or("There are no elves")?;
 
-        Ok(max_calories.to_owned())
+        Ok(format!("{}", max_calories.to_owned()))
     }
 
     fn solve2(&self) -> SolutionResult {
@@ -35,7 +35,7 @@ impl Solution for Day1 {
         calories.reverse();
         let total_calories = self.calories.iter().take(3).sum::<usize>();
 
-        Ok(total_calories)
+        Ok(format!("{total_calories}"))
     }
 
     fn file_name(&self) -> &'static str {

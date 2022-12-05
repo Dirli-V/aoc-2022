@@ -42,7 +42,7 @@ impl Solution for Day2 {
     }
 
     fn solve1(&self) -> SolutionResult {
-        let score = self
+        let score: usize = self
             .guide
             .iter()
             .map(|game| match game {
@@ -58,11 +58,11 @@ impl Solution for Day2 {
             })
             .sum();
 
-        Ok(score)
+        Ok(format!("{score}"))
     }
 
     fn solve2(&self) -> SolutionResult {
-        let score = self
+        let score: usize = self
             .guide
             .iter()
             .map(|game| match game {
@@ -78,7 +78,7 @@ impl Solution for Day2 {
             })
             .sum();
 
-        Ok(score)
+        Ok(format!("{score}"))
     }
 
     fn file_name(&self) -> &'static str {

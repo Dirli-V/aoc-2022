@@ -37,7 +37,7 @@ impl Solution for Day3 {
                 }
             }
         }
-        Ok(total_prio)
+        Ok(format!("{total_prio}"))
     }
 
     fn solve2(&self) -> SolutionResult {
@@ -55,7 +55,7 @@ impl Solution for Day3 {
             }
         }
 
-        Ok(total_prio)
+        Ok(format!("{total_prio}"))
     }
 
     fn file_name(&self) -> &'static str {

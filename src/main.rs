@@ -9,8 +9,9 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
-type SolutionResult = Result<usize, Box<dyn Error>>;
+type SolutionResult = Result<String, Box<dyn Error>>;
 type ParseResult = Result<(), Box<dyn Error>>;
 
 trait Solution {
@@ -26,8 +27,9 @@ fn main() {
         solve(day1::Day1::default());
         solve(day2::Day2::default());
         solve(day3::Day3::default());
+        solve(day4::Day4::default());
     }
-    solve(day4::Day4::default());
+    solve(day5::Day5::default());
 }
 
 fn solve(mut s: impl Solution) {
@@ -53,12 +55,12 @@ fn solve(mut s: impl Solution) {
         return;
     }
     match s.solve1() {
-        Ok(0) => println!("The 1. solution is not yet implemented"),
+        Ok(v) if v.is_empty() => println!("The 1. solution is not yet implemented"),
         Ok(result) => println!("The 1. result is {}", result),
         Err(e) => println!("Error: {}", e),
     }
     match s.solve2() {
-        Ok(0) => println!("The 2. solution is not yet implemented"),
+        Ok(v) if v.is_empty() => println!("The 2. solution is not yet implemented"),
         Ok(result) => println!("The 2. result is {}", result),
         Err(e) => println!("Error: {}", e),
     }

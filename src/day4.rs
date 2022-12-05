@@ -39,7 +39,7 @@ impl Solution for Day4 {
                     || p2.contains(p1.start()) && p2.contains(p1.end())
             })
             .count();
-        Ok(count)
+        Ok(format!("{count}"))
     }
 
     fn solve2(&self) -> SolutionResult {
@@ -53,7 +53,7 @@ impl Solution for Day4 {
                     || p2.contains(p1.end())
             })
             .count();
-        Ok(count)
+        Ok(format!("{count}"))
     }
 
     fn file_name(&self) -> &'static str {
