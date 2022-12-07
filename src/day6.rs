@@ -17,7 +17,7 @@ impl Solution for Day6 {
     fn solve1(&self) -> SolutionResult {
         let chars = self.signal.chars().collect::<Vec<_>>();
 
-        let (i, f) = chars
+        let (i, _) = chars
             .windows(4)
             .enumerate()
             .find(|(_, chars)| {
@@ -35,7 +35,7 @@ impl Solution for Day6 {
     fn solve2(&self) -> SolutionResult {
         let chars = self.signal.chars().collect::<Vec<_>>();
 
-        let (i, f) = chars
+        let (i, _) = chars
             .windows(14)
             .enumerate()
             .find(|(_, chars)| {

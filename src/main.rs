@@ -1,3 +1,5 @@
+#![feature(anonymous_lifetime_in_impl_trait)]
+
 use std::{
     error::Error,
     fs::File,
@@ -11,6 +13,7 @@ mod day3;
 mod day4;
 mod day5;
 mod day6;
+mod day7;
 
 type SolutionResult = Result<String, Box<dyn Error>>;
 type ParseResult = Result<(), Box<dyn Error>>;
@@ -30,8 +33,9 @@ fn main() {
         solve(day3::Day3::default());
         solve(day4::Day4::default());
         solve(day5::Day5::default());
+        solve(day6::Day6::default());
     }
-    solve(day6::Day6::default());
+    solve(day7::Day7::default());
 }
 
 fn solve(mut s: impl Solution) {
