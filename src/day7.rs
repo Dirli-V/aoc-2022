@@ -20,7 +20,7 @@ impl Solution for Day7 {
         let mut current_path: Vec<String> = Vec::new();
         for cmd in &self.lines {
             let parts = cmd.split_whitespace().collect::<Vec<_>>();
-            let first = parts.get(0).ok_or("Unexpected empty line")?;
+            let first = parts.first().ok_or("Unexpected empty line")?;
             if *first == "$" {
                 let second = parts.get(1).ok_or("No command found")?;
                 match *second {
@@ -36,7 +36,7 @@ impl Solution for Day7 {
                         sizes.entry(current_path.join("/")).or_default();
                     }
                     "ls" => {}
-                    _ => return Ok("Unknown command".to_string()),
+                    _ => return Err("Unknown command".into()),
                 }
             } else if *first != "dir" {
                 let size: usize = first.parse()?;
@@ -47,7 +47,7 @@ impl Solution for Day7 {
                 if !known_files.contains(&file_name) {
                     known_files.insert(file_name);
                     total_path.pop();
-                    while total_path.len() > 0 {
+                    while !total_path.is_empty() {
                         let cur = sizes.entry(total_path.join("/")).or_default();
                         *cur += size;
                         total_path.pop();
@@ -58,11 +58,7 @@ impl Solution for Day7 {
             }
         }
 
-        let sum: usize = sizes
-            .iter()
-            .map(|(_, size)| size)
-            .filter(|size| **size <= 100_000)
-            .sum();
+        let sum: usize = sizes.values().filter(|size| **size <= 100_000).sum();
 
         Ok(sum.to_string())
     }
@@ -73,7 +69,7 @@ impl Solution for Day7 {
         let mut current_path: Vec<String> = Vec::new();
         for cmd in &self.lines {
             let parts = cmd.split_whitespace().collect::<Vec<_>>();
-            let first = parts.get(0).ok_or("Unexpected empty line")?;
+            let first = parts.first().ok_or("Unexpected empty line")?;
             if *first == "$" {
                 let second = parts.get(1).ok_or("No command found")?;
                 match *second {
@@ -100,7 +96,7 @@ impl Solution for Day7 {
                 if !known_files.contains(&file_name) {
                     known_files.insert(file_name);
                     total_path.pop();
-                    while total_path.len() > 0 {
+                    while !total_path.is_empty() {
                         let cur = sizes.entry(total_path.join("/")).or_default();
                         *cur += size;
                         total_path.pop();
@@ -115,8 +111,7 @@ impl Solution for Day7 {
         let free_space = 70_000_000 - total_size;
         let needed_space = 30_000_000 - free_space;
         let mut potential_dirs = sizes
-            .iter()
-            .map(|(_, size)| size)
+            .values()
             .filter(|size| **size >= needed_space)
             .collect::<Vec<_>>();
         potential_dirs.sort();

@@ -14,6 +14,7 @@ mod day4;
 mod day5;
 mod day6;
 mod day7;
+mod day8;
 
 type SolutionResult = Result<String, Box<dyn Error>>;
 type ParseResult = Result<(), Box<dyn Error>>;
@@ -34,8 +35,9 @@ fn main() {
         solve(day4::Day4::default());
         solve(day5::Day5::default());
         solve(day6::Day6::default());
+        solve(day7::Day7::default());
     }
-    solve(day7::Day7::default());
+    solve(day8::Day8::default());
 }
 
 fn solve(mut s: impl Solution) {
@@ -44,31 +46,31 @@ fn solve(mut s: impl Solution) {
     let path = match input_path.to_str() {
         Some(p) => p,
         None => {
-            println!("Unable to create path to input file: {}", file_name);
+            println!("Unable to create path to input file: {file_name}");
             return;
         }
     };
     let input_lines = match read_file(path) {
         Ok(it) => it,
         Err(e) => {
-            println!("Unable to read file {}: {}", path, e);
+            println!("Unable to read file {path}: {e}");
             return;
         }
     };
-    println!("Solving {}:", file_name);
+    println!("Solving {file_name}:");
     if let Err(e) = s.parse(input_lines) {
-        println!("Error while parsing: {}", e);
+        println!("Error while parsing: {e}");
         return;
     }
     match s.solve1() {
         Ok(v) if v.is_empty() => println!("The 1. solution is not yet implemented"),
-        Ok(result) => println!("The 1. result is {}", result),
-        Err(e) => println!("Error: {}", e),
+        Ok(result) => println!("The 1. result is {result}"),
+        Err(e) => println!("Error: {e}"),
     }
     match s.solve2() {
         Ok(v) if v.is_empty() => println!("The 2. solution is not yet implemented"),
-        Ok(result) => println!("The 2. result is {}", result),
-        Err(e) => println!("Error: {}", e),
+        Ok(result) => println!("The 2. result is {result}"),
+        Err(e) => println!("Error: {e}"),
     }
     println!();
 }
