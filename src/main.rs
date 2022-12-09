@@ -15,6 +15,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 
 type SolutionResult = Result<String, Box<dyn Error>>;
 type ParseResult = Result<(), Box<dyn Error>>;
@@ -36,8 +37,9 @@ fn main() {
         solve(day5::Day5::default());
         solve(day6::Day6::default());
         solve(day7::Day7::default());
+        solve(day8::Day8::default());
     }
-    solve(day8::Day8::default());
+    solve(day9::Day9::default());
 }
 
 fn solve(mut s: impl Solution) {
