@@ -16,6 +16,7 @@ mod day14;
 mod day15;
 mod day16;
 mod day17;
+mod day18;
 mod day2;
 mod day3;
 mod day4;
@@ -54,8 +55,9 @@ fn main() {
         solve(day14::Day14::default());
         solve(day15::Day15::default());
         solve(day16::Day16::default());
+        solve(day17::Day17::default());
     }
-    solve(day17::Day17::default());
+    solve(day18::Day18::default());
 }
 
 fn solve(mut s: impl Solution) {
